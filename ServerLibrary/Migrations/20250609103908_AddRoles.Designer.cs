@@ -8,10 +8,10 @@ using ServerLibrary.Data;
 
 #nullable disable
 
-namespace ServerLibrary.Data.Migrations
+namespace ServerLibrary.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250608111141_AddRoles")]
+    [Migration("20250609103908_AddRoles")]
     partial class AddRoles
     {
         /// <inheritdoc />
