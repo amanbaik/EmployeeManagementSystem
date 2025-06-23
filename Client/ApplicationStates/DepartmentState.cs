@@ -1,6 +1,6 @@
 ﻿namespace Client.ApplicationStates
 {
-    public class DepartmentSate
+    public class DepartmentState
     {
 
         public Action? GeneralDepartmentAction { get; set; }

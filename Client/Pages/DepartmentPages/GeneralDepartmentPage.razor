@@ -1,8 +1,9 @@
-﻿@using Client.ApplicationStates
+﻿@using BaseLibrary.Entities
+@using Client.ApplicationStates
 @implements IDisposable
-@inject DepartmentSate departmentState
+@inject DepartmentState departmentState
 
-if (departmentState.ShowGeneralDepartment)
+@if (departmentState.ShowGeneralDepartment)
 {
     <div class="container mt-5">
         <div class="row">
@@ -17,7 +18,7 @@ if (departmentState.ShowGeneralDepartment)
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th scope="col"></th
+                                        <th scope="col"></th>
                                         <th scope="col"></th>
                                         <th scope="col"></th>
                                         <th scope="col"></th>
@@ -26,20 +27,20 @@ if (departmentState.ShowGeneralDepartment)
                                 <tbody>
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td></td
-                                        <td></td
-                                        <td></td
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">2</th>
-                                        <td></td
-                                        <td></td
-                                        <td></td
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">3</th>
-                                        <td colspan="2"></td
-                                        <td></td
+                                        <td colspan="2"></td>
+                                        <td></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -53,7 +54,7 @@ if (departmentState.ShowGeneralDepartment)
 <GeneralDepartmentDialog @ref="generalDepartmentDialog" />
 @code{
     GeneralDepartmentDialog? generalDepartmentDialog;
-    GeneralDepartmentDTO DepartmentDTO = new();
+    GeneralDepartment DepartmentDTO = new();
 
     protected override void OnInitialized()
     {
