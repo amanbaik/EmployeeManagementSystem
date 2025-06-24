@@ -9,6 +9,6 @@ namespace ClientLibrary.Services.Contracts
         Task<T> GetById(int id, string baseUrl);
         Task<GeneralResponse> Insert(T item, string baseUrl);
         Task<GeneralResponse> Update(T item, string baseUrl);
-        Task<GeneralResponse> DeleteById(T item, string baseUrl);
+        Task<GeneralResponse> DeleteById(int id, string baseUrl);
     }
 }

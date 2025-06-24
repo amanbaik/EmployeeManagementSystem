@@ -41,10 +41,10 @@ namespace ClientLibrary.Services.Implementations
             return result!;
         }
         //Delete {id}
-        public async Task<GeneralResponse> DeleteById(T item, string baseUrl)
+        public async Task<GeneralResponse> DeleteById(int id, string baseUrl)
         {
             var httpClient = await getHttpClient.GetPrivateHttpClient();
-            var response = await httpClient.DeleteAsync($"{baseUrl}/delete/{item}");
+            var response = await httpClient.DeleteAsync($"{baseUrl}/delete/{id}");
             var result = await response.Content.ReadFromJsonAsync<GeneralResponse>();
             return result!;
 
