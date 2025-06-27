@@ -13,7 +13,7 @@
             Action?.Invoke();
         }
         
-        bool ShowDepartment { get; set; }
+        public bool ShowDepartment { get; set; }
         public void DepartmentClicked()
         {
             ResetAllDepartments();
