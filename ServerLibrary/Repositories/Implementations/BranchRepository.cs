@@ -18,7 +18,7 @@ namespace ServerLibrary.Repositories.Implementations
             return Success();
         }
 
-        public async Task<List<Branch>> GetAll() => await appDbContext.Branches.AsNoTracking().Include(gd => gd.Department).ToListAsync();
+        public async Task<List<Branch>> GetAll() => await appDbContext.Branches.AsNoTracking().Include(d => d.Department).ToListAsync();
         public async Task<Branch> GetById(int id) => await appDbContext.Branches.FindAsync(id);
         public async Task<GeneralResponse> Insert(Branch item)
         {

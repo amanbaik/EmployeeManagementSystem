@@ -10,15 +10,15 @@ namespace ServerLibrary.Repositories.Implementations
     {
         public async Task<GeneralResponse> DeleteById(int id)
         {
-            var dep = await appDbContext.Cities.FindAsync(id);
-            if (dep is null) return NotFound();
+            var city = await appDbContext.Cities.FindAsync(id);
+            if (city is null) return NotFound();
 
-            appDbContext.Cities.Remove(dep);
+            appDbContext.Cities.Remove(city);
             await Commit();
             return Success();
         }
 
-        public async Task<List<City>> GetAll() => await appDbContext.Cities.ToListAsync();
+        public async Task<List<City>> GetAll() => await appDbContext.Cities.AsNoTracking().Include(c=>c.Country).ToListAsync();
         public async Task<City> GetById(int id) => await appDbContext.Cities.FindAsync(id);
         public async Task<GeneralResponse> Insert(City item)
         {
@@ -29,9 +29,10 @@ namespace ServerLibrary.Repositories.Implementations
         }
         public async Task<GeneralResponse> Update(City item)
         {
-            var dep = await appDbContext.Cities.FindAsync(item.Id);
-            if (dep is null) return NotFound();
-            dep.Name = item.Name;
+            var city = await appDbContext.Cities.FindAsync(item.Id);
+            if (city is null) return NotFound();
+            city.Name = item.Name;
+            city.CountryId = item.CountryId;
             await Commit();
             return Success();
         }
